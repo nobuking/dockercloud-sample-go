@@ -10,6 +10,7 @@ lb:
 web:
   image: nobuking/dockercloud-sample-go
   autorestart: always
+  autoredeploy: true
   links:
     - mongo
   deployment_strategy: high_availability
