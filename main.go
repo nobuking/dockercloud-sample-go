@@ -10,7 +10,7 @@ import (
 )
 
 func mongoConnect() (s string) {
-	
+
 	session, err := mgo.Dial("mongo")
 	if err == nil {
 		defer session.Close()

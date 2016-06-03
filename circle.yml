@@ -1,0 +1,13 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+checkout:
+  override:
+   git clone https://github.com/nobuking/dockercloud-sample-go.git
+
+test:
+  override:
+    - cd dockercloud-sample-go
+    - test -z "(gofmt -s -l . | tee /dev/stderr)"
+    - go vet ./...
