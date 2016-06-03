@@ -12,8 +12,6 @@ web:
   autorestart: always
   links:
     - mongo
-  environment:
-    - NAME=Everyone
   deployment_strategy: high_availability
   target_num_containers: 4
 mongo:
