@@ -1,11 +1,12 @@
 FROM golang
 
-ADD . /go/src/github.com/docker/dockercloud-quickstart-go
+#ADD . /go/src/github.com/docker/dockercloud-quickstart-go
+ADD . /go/src/github.com/nobuking/dockercloud-sample-go
 RUN go get gopkg.in/mgo.v2
-RUN go install github.com/docker/dockercloud-quickstart-go
+RUN go install github.com/nobuking/dockercloud-sample-go
 
 ENV NAME world
 
-ENTRYPOINT /go/bin/dockercloud-quickstart-go
+ENTRYPOINT /go/bin/dockercloud-sample-go
 
 EXPOSE 80

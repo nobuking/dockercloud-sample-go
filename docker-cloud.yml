@@ -1,8 +1,23 @@
+lb:
+  image: dockercloud/haproxy
+  autorestart: always
+  links:
+    - web
+  ports:
+    - "80:80"
+  roles:
+    - global
 web:
-  image: dockercloud/quickstart-go
+  image: nobuking/dockercloud-sample-go
+  autorestart: always
   links:
     - mongo
-  ports:
-    - "80"
+  environment:
+    - NAME=Everyone
+  deployment_strategy: high_availability
+  target_num_containers: 4
 mongo:
   image: mongo
+  autorestart: always
+  environment:
+    - MONGO_PASS=password
