@@ -5,8 +5,7 @@ ADD . /go/src/github.com/nobuking/dockercloud-sample-go
 RUN go get gopkg.in/mgo.v2
 RUN go install github.com/nobuking/dockercloud-sample-go
 
-#ENV NAME world
-ENV NAME Everyone
+ENV NAME world
 
 ENTRYPOINT /go/bin/dockercloud-sample-go
 
