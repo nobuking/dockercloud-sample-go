@@ -5,5 +5,7 @@ machine:
 test:
   override:
     - echo testetst!
-#    - test -z "(gofmt -s -l /home/ubuntu/dockercloud-sample-go/main.go | tee /dev/stderr)"
     - go vet ./...
+  post:
+    - curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/nobuking/dockercloud-sample-go/trigger/d2a1a7bf-9a0d-4dfd-808e-31d25cebffc2/
+  
